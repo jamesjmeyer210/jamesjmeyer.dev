@@ -21,6 +21,7 @@ async fn main() -> std::io::Result<()> {
             .wrap(Logger::default())
             .wrap(Logger::new("%a %{User-Agent}i"))
             .route("/", web::get().to(controller::get_index))
+            .route("/resume", web::get().to(controller::get_resume))
     })
     .bind(format!("{0}:{1}", config.ip, config.port))?
     .run()
