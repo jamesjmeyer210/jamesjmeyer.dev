@@ -1,4 +1,4 @@
-use actix_web::{web, App, HttpServer, middleware::Logger};
+use actix_web::{web, App, HttpServer, middleware::Logger, HttpRequest};
 use site::{Config, AppState, controller};
 use std::sync::Mutex;
 use env_logger::Env;
@@ -22,6 +22,8 @@ async fn main() -> std::io::Result<()> {
             .wrap(Logger::new("%a %{User-Agent}i"))
             .route("/", web::get().to(controller::get_index))
             .route("/resume", web::get().to(controller::get_resume))
+            .route("/css/{filename:.*}", web::get().to(controller::get_css))
+            .route("/js/{filename:.*}", web::get().to(controller::get_js))
     })
     .bind(format!("{0}:{1}", config.ip, config.port))?
     .run()
