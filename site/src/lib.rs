@@ -2,6 +2,7 @@ use actix_web::App;
 use std::sync::{Arc, Mutex};
 
 pub mod controller;
+mod service;
 
 pub struct Config {
     pub ip: String,
@@ -18,18 +19,4 @@ impl AppState {
             connection_count: Mutex::new(0),
         }
     }
-
-    // pub fn get_conn(&mut self) -> u64 {
-    //     self.connection_count
-    //         .into_inner()
-    //         .unwrap()
-    //         .clone()
-    // }
-    //
-    // pub fn inc_conn(&mut self) -> () {
-    //     let conn = self.connection_count
-    //         .get_mut()
-    //         .unwrap();
-    //     *conn += 1;
-    // }
 }
