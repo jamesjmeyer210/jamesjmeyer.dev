@@ -15,7 +15,7 @@ const nav = `<div id="navbar" style="border-color: #3634d2; border-width: 2px; b
         })()}>Contact</a>
     </section>
     <section class="navbar-center">
-        <a href="${(() => { return l == '/index.html' ? '#' : '/index.html' })()}" class="navbar-brand mr-2 text-bold">James J Meyer</a>
+        <a href="${(() => { return l == '/' ? '#' : '/' })()}" class="navbar-brand mr-2 text-bold">James J Meyer</a>
     </section>
     <section class="navbar-section">
         <div class="input-group input-inline">

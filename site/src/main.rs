@@ -11,9 +11,7 @@ async fn main() -> std::io::Result<()> {
     };
 
     let app_state = web::Data::new(AppState::new());
-
     env_logger::from_env(Env::default().default_filter_or("info")).init();
-
     HttpServer::new(move || {
         App::new()
             .app_data(app_state.clone())
