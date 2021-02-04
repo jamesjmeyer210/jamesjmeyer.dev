@@ -1,11 +1,10 @@
-use actix_web::{web, App, HttpServer, middleware::Logger, HttpRequest};
-use site::{Config, AppState, controller};
-use std::sync::Mutex;
+use actix_web::{middleware::Logger, web, App, HttpRequest, HttpServer};
 use env_logger::Env;
+use site::{controller, AppState, Config};
+use std::sync::Mutex;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-
     let config = Config {
         ip: "127.0.0.1".to_string(),
         port: 8080,
@@ -22,8 +21,10 @@ async fn main() -> std::io::Result<()> {
             .wrap(Logger::new("%a %{User-Agent}i"))
             .route("/", web::get().to(controller::get_index))
             .route("/resume", web::get().to(controller::get_resume))
-            .route("/css/{filename:.*}", web::get().to(controller::get_css))
-            .route("/js/{filename:.*}", web::get().to(controller::get_js))
+            .route(
+                "/resource/{filename:.*}",
+                web::get().to(controller::get_file),
+            )
     })
     .bind(format!("{0}:{1}", config.ip, config.port))?
     .run()

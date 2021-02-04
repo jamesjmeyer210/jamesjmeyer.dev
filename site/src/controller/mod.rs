@@ -1,9 +1,8 @@
-mod index;
-mod resume;
 mod blog;
+mod index;
 mod resource;
+mod resume;
 
-pub use index::get_index as get_index;
-pub use resource::get_css as get_css;
-pub use resource::get_js as get_js;
-pub use resume::get_resume as get_resume;
+pub use index::get_index;
+pub use resource::get_file;
+pub use resume::get_resume;

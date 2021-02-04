@@ -5,13 +5,13 @@ const nav = `<div id="navbar" style="border-color: #3634d2; border-width: 2px; b
 <header class="navbar" style="margin: 1rem;">
     <section class="navbar-section">
         <a href="site/resume.html" class="btn btn-link" ${(() => {
-            return l == '/site/resume.html' ? `disabled` : 'enabled'
+            return l == '/resume' ? `disabled` : 'enabled'
         })()}>Resume</a>
         <a href="site/blog.html" class="btn btn-link" ${(() => {
-            return l == '/site/blog.html' ? `disabled` : 'enabled'
+            return l == '/blog' ? `disabled` : 'enabled'
         })()}>Blog</a>
         <a href="site/contact.html" class="btn btn-link" ${(() => {
-            return l == '/site/contact.html' ? `disabled` : 'enabled'
+            return l == '/contact' ? `disabled` : 'enabled'
         })()}>Contact</a>
     </section>
     <section class="navbar-center">
