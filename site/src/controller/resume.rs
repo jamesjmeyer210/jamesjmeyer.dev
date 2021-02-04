@@ -6,5 +6,4 @@ pub async fn get_resume(data: web::Data<AppState>) -> impl Responder {
     HttpResponse::TemporaryRedirect()
         .set_header("Location", "/resource/html/resume.html")
         .finish()
-    //HttpResponse::Ok().body("This is the resume page")
 }

@@ -4,13 +4,13 @@ console.log(l);
 const nav = `<div id="navbar" style="border-color: #3634d2; border-width: 2px; border-style: solid; border-radius: 4px;">
 <header class="navbar" style="margin: 1rem;">
     <section class="navbar-section">
-        <a href="site/resume.html" class="btn btn-link" ${(() => {
+        <a href="/resume" class="btn btn-link" ${(() => {
             return l == '/resume' ? `disabled` : 'enabled'
         })()}>Resume</a>
-        <a href="site/blog.html" class="btn btn-link" ${(() => {
+        <a href="resource/md/blog.md" class="btn btn-link" ${(() => {
             return l == '/blog' ? `disabled` : 'enabled'
         })()}>Blog</a>
-        <a href="site/contact.html" class="btn btn-link" ${(() => {
+        <a href="resource/html/contact.html" class="btn btn-link" ${(() => {
             return l == '/contact' ? `disabled` : 'enabled'
         })()}>Contact</a>
     </section>
