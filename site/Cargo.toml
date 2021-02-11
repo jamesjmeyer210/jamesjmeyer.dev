@@ -11,3 +11,15 @@ actix-web = "3"
 actix-files = "*"
 env_logger = "0.8.2"
 log = "0.4.14"
+# Experimental Crates
+# TODO:
+#   Priority: medium
+#   Put these experimental crates behind a facade so if they break,
+#   stop being maintained, or whatever, I can easily drop something
+#   else in and maintain regular operations.
+minify-html = "*"
+# TODO:
+#   Priority: low
+#   Implement a file caching mechanism using r-cache, then contribute
+#   to the r-cache docs.
+# r-cache = "*"

@@ -1,5 +1,4 @@
 use crate::AppState;
-use crate::service::get_resource;
 use std::fs;
 use std::path::PathBuf;
 use actix_web::{web, HttpResponse, Responder};
