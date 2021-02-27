@@ -7,10 +7,10 @@ const nav = `<div id="navbar" style="border-color: #3634d2; border-width: 2px; b
         <a href="/resume" class="btn btn-link" ${(() => {
             return l == '/resume' ? `disabled` : 'enabled'
         })()}>Resume</a>
-        <a href="resource/md/blog.md" class="btn btn-link" ${(() => {
+        <a href="/blog" class="btn btn-link" ${(() => {
             return l == '/blog' ? `disabled` : 'enabled'
         })()}>Blog</a>
-        <a href="contact" class="btn btn-link" ${(() => {
+        <a href="/contact" class="btn btn-link" ${(() => {
             return l == '/contact' ? `disabled` : 'enabled'
         })()}>Contact</a>
     </section>
