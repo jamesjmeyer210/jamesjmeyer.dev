@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/resource/css/import/spectre.min.css">
+        <link rel="stylesheet" href="/resource/css/import/spectre-exp.min.css">
+        <link rel="stylesheet" href="/resource/css/import/spectre-icons.min.css">
+        <title>James Meyer</title>
+    </head>
+    <body id="app">
+    </body>
+    <!-- <script src="/resource/js/import/sha256.min.js" type="application/javascript"></script> -->
+    <script src="/resource/js/import/sha256.min.js" type="application/javascript"></script>
+    <!-- <script type="application/javascript">
+        if(undefined === sha256('assert')){ console.log("Err"); }
+
+        const EMAIL_SIG = "3b33a7145b025dee42c9e46bdb73d7c1c0f5abcd775262bb817661f4bf9f3868";
+
+        function Email()
+        {
+            return {
+                first: "",
+                middle: "",
+                last: "",
+                nonce: "",
+                at: "",
+            }
+        };
+
+        const hashObjectValues = (object) => {
+            if(typeof(object) !== "object") return undefined
+            
+            let sum = "";
+            Object.values(object).forEach(value => sum = sum + sha256(value));
+            return sha256(sum);
+        };
+
+        const email = Email();
+        email.first = 'james';
+        email.middle = null;
+        email.last = 'meyer';
+        email.nonce = null;
+        email.at = '@gmail.com'
+
+        function range(a, b, f){
+            if(typeof(a) !== 'number') return undefined;
+            if(typeof(b) !== 'number') return undefined;
+            if(typeof(f) !== 'function') return undefined;
+
+            if(a == b){
+                return [a];
+            }
+            if(a > b){
+                for(let i = a; i > b; i--){
+                    f(i);    
+                }
+            }
+            if(a < b){
+                for(let i = a; i < b; i++){
+                    f(i);
+                }
+            }
+        };
+
+        Array
+            .from('abcdefghijklmnopqrstuvwxyz')
+            .forEach(c => {
+                email.middle = c;
+                range(0, 999, (index) => {
+                    email.nonce = index;
+                    if(EMAIL_SIG === hashObjectValues(email)){
+                        console.log(`middle = ${j}, nonce = ${nonce}`)
+                    }
+                });
+            })
+    </script> -->
+</html>

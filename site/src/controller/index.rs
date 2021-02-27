@@ -6,10 +6,6 @@ use std::rc::Rc;
 use crate::AppState;
 
 pub async fn get_index(data: web::Data<AppState>) -> impl Responder {
-
-    //let mut rs = ResourceService::from(&data.resource_cache);
-
-    //rs.get("resource/index.html").await
     match fs::read_to_string("resource/index.html") {
         Ok(html) => HttpResponse::Ok().body(html),
         Err(_) => HttpResponse::NotFound().finish(),

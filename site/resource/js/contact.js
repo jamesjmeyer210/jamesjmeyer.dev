@@ -1,63 +1,23 @@
-function resume() {
-  // convert a string to Uint8Array
-  const stringToUint8Array = (str) => {
-    if(typeof(str) != "string"){
-      return undefined;
-    }
+import {sha256} from './import/sha256.min.js'
 
-    let seq = [];
-    for(let i = 0; i < str.length; i++){
-      seq.push(str.charCodeAt(i));
-    }
-    return new Uint8Array(seq);
-  }
-  // convert a Uint8Array to a string
-  const uint8ArrayToString = (bytes) => {
-    let str = "";
-    bytes.forEach( (byte) => {
-      str += String.fromCharCode(byte);
-    });
-    return str;
-  }
-  // ads 'amount' to each byte in the array
-  const upshift = (bytes, amount) => {
-    for(let i = 0; i < bytes.length; i++){
-      bytes[i] += amount;
-    }
-    return bytes;
-  }
-  // subtracts 'amount' from each byte in the array
-  const downshift = (bytes, amount) => {
-    for(let i = 0; i < bytes.length; i++){
-      bytes[i] -= amount;
-    }
-    return bytes;
-  }
+(function contact() {
+  if(undefined === Cypher) console.log("undefined import: Cypher");
 
-  const encrypt = (digest, key) => {
-    return uint8ArrayToString(upshift(stringToUint8Array(digest), key));
-  }
-
-  const decrypt = (digest, key) => {
-    return uint8ArrayToString(downshift(stringToUint8Array(digest), key));
-  }
-
-  //  *   *   *   *   *   *   *   *
-  //  *   *   * begin main*   *   *
-  //  *   *   *   *   *   *   *   *
   const contactInfo = {
     email: "ulxp~uxp\u0084p}=<;Krxltw9nzx",
     phone: "?AD8??=8BD>=",
   };
   
+  sha256('469-442-7932');
+  /*
   // Get the modal
   const modalEmail = document.getElementById("modal-email");
   const modalPhone = document.getElementById("modal-phone");
   console.assert(modalEmail !== null && modalPhone !== null);
   
   // Get the button that opens the modal
-  const btnEmail = document.getElementById("resume-contact-email");
-  const btnPhone = document.getElementById("resume-contact-phone");
+  const btnEmail = document.getElementById("contact-email");
+  const btnPhone = document.getElementById("contact-phone");
   console.assert(btnEmail !== null && btnPhone !== null);
   
   // Get the <span> element that closes the modal
@@ -74,7 +34,7 @@ function resume() {
   
   btnPhone.onclick = () => {
     document.getElementById("modal-phone-val")
-      .innerText = decrypt(contactInfo.phone, 11);
+      .innerText = Cypher.decrypt(contactInfo.phone, 11);
     modalPhone.style.display = "block";
   }
   
@@ -95,6 +55,5 @@ function resume() {
     if (event.target == modalPhone) {
       modalEmail.style.display = "none";
     }
-  }
-
-};
+  }*/
+})();

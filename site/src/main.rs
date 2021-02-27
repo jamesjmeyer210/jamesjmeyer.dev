@@ -18,11 +18,11 @@ async fn main() -> std::io::Result<()> {
             .wrap(Logger::default())
             .wrap(Logger::new("%a %{User-Agent}i"))
             .route("/", web::get().to(controller::get_index))
-            .route(
-                "/resource/{filename:.*}",
-                web::get().to(controller::get_file),
-            )
+            .route("/resource/{filename:.*}"
+                   ,web::get().to(controller::get_file))
             .route("/resume", web::get().to(controller::get_resume))
+            .route("/contact", web::get().to(controller::get_contact))
+            .route("/blog", web::get().to(controller::get_blogs))
     })
     .bind(format!("{0}:{1}", config.ip, config.port))?
     .run()
