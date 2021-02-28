@@ -1,4 +1,4 @@
-use actix_web::{middleware::Logger, web, App, HttpRequest, HttpServer};
+use actix_web::{middleware::Logger, web, App, HttpRequest, HttpServer, HttpResponse};
 use env_logger::Env;
 use site::{controller, AppState, Config};
 use std::sync::Mutex;
@@ -17,12 +17,16 @@ async fn main() -> std::io::Result<()> {
             .app_data(app_state.clone())
             .wrap(Logger::default())
             .wrap(Logger::new("%a %{User-Agent}i"))
-            .route("/", web::get().to(controller::get_index))
-            .route("/resource/{filename:.*}"
-                   ,web::get().to(controller::get_file))
+            .route("/", web::get().to(|data: web::Data<AppState>|{
+                let content = data.web_pack.index.to_string();
+                HttpResponse::Ok().body(content)
+            }))
             .route("/resume", web::get().to(controller::get_resume))
             .route("/contact", web::get().to(controller::get_contact))
-            .route("/blog", web::get().to(controller::get_blogs))
+            .route("/blogs", web::get().to(controller::get_blogs))
+            .route("/blog/{blog}", web::get().to(controller::get_blog))
+            .route("/resource/{filename:.*}"
+                   ,web::get().to(controller::get_file))
     })
     .bind(format!("{0}:{1}", config.ip, config.port))?
     .run()
